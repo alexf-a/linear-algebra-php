@@ -275,9 +275,7 @@ class DimensionException extends Exception {
  * @param mixed $M3, ... unlimited OPTIONAL number of additional matrices.
  * @throw a DimensionException if (M1 * ... * Mi) and Mi+1 have incompatible dimensions.
  */
-function mmult($M1, $M2){
-	
-	$matrices = func_get_args();
+function mmult(...$matrices){
 	$i = 1;
 	foreach ($matrices as $M){
 		if ($i == 1){
