@@ -40,8 +40,7 @@ function set_mysql_conn($open=True){
  * @param mixed $cols, ... unlimited OPTIONAL string column names from SQL table.
  * 
  */
-function table_to_matrix($table_name){
-	$cols = func_get_args()[1:];
+function table_to_matrix($table_name, ...$cols){
 	//Construct query string from input
 	$c = "";
 	if (count($cols) == 0){

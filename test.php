@@ -1,5 +1,6 @@
 <?php
 include 'matrix.php';
+/*
 include 'table_retrieval.php';
 try {
 	set_mysql_conn();
@@ -8,8 +9,6 @@ try {
 	print($e);
 	print("\n");
 }
-
-/*
 $Adata = array(
 	array(1, 2, 3),
 	array(4, 5, 6),
@@ -25,14 +24,14 @@ $Bdata = array(
 */
 
 $Adata = array(
-	array(2, 2, 2,),
-	array(2, 2, 2,)
+	array(2, 2, 2),
+	array(2, 2, 2)
 );
 
 $Bdata = array(
 	array(2, 2),
-	array(2, 2,),
-	array(2, 2,)
+	array(2, 2),
+	array(2, 2)
 );
 
 $Cdata = array(
@@ -40,20 +39,14 @@ $Cdata = array(
 	array(2, 2)
 );
 
-$A = table_to_matrix("test1");
-$B = table_to_matrix("test1");
-$C = table_to_matrix("test1", 1, 2);
+$A = new Matrix($Adata);
+$B = new Matrix($Bdata);
+$C = new Matrix($Cdata);
+
 
 echo 'PHP Version'.phpversion()."\n";
 echo mmult($A, $B);
 echo("\n \n");
-echo($C);
-echo mmult($B->getColumn(1), $C);
-
-set_mysql_conn(False);
-
-phpinfo();
-
-
+echo mmult($B->getRow(1), $C);
 
 ?>
